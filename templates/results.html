@@ -1,13 +1,33 @@
 {% extends "layout.html" %}
-{% block title %}Wikipedia Results{% endblock %}
-{% block content %}
-{% if page %}
-{#    TODO: add page title and more... #}
 
-  <h2>Summary </h2>
+{% block title %}Wikipedia Results{% endblock %}
+
+{% block content %}
+
+{% if page %}
+
+    <h1>Search Results</h1>
+
+
+    <h2>{{ page_title }}</h2>
+
+
+    <p>You searched for: <strong>{{ search_term }}</strong></p>
+
+
+    <h3>Summary</h3>
     <p>{{ page.summary }}</p>
-    <p><a href="{{ page.url }}"> {{ page.title }}</a> </p>
+
+
+    <p>
+        <a href="{{ page.url }}" target="_blank">Read full page on Wikipedia</a>
+    </p>
+
 {% else %}
-  <h1>Error</h1>
+
+    <h1>Error</h1>
+    <p>No result found.</p>
+
 {% endif %}
+
 {% endblock %}
